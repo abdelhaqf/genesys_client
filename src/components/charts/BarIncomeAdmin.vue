@@ -5,15 +5,73 @@
 
     <!-- {{$store.getters.totalIncome + 'asd'}} -->
     </pre>
+    <FormDetail ref="detail" v-if="mySeries[0].data.length">
+      <div slot="content">
+        <table class="table-info">
+          <tr>
+            <td>period</td>
+            <td>:</td>
+            <td>{{this.$store.getters.totalIncome[selectedSeries].month}} {{this.$store.getters.totalIncome[selectedSeries].year}}</td>
+          </tr>
+          <tr>
+            <td>total income</td>
+            <td>:</td>
+            <td>{{series[0].data[selectedSeries] | rp}}</td>
+          </tr>
+        </table>
+        <table class="table-details">
+          <tr>
+            <th>date</th>
+            <th>user id</th>
+            <th>company</th>
+            <th>price</th>
+          </tr>
+          <tr v-for="(item) in monthlyData" :key="item.campaign_id">
+            <td>{{item.created_at.substring(0,10)}}</td>
+            <td>{{item.user_id}}</td>
+            <td>{{item.company_name}}</td>
+            <td>{{item.final_cost | rp}}</td>
+          </tr>
+        </table>
+      </div>
+    </FormDetail>
   </div>
 </template>
 <script>
+import FormDetail from "@/components/FormDetail";
 export default {
   name: "barlIncomeUser",
+  components: { FormDetail },
+  methods: {
+    showTable() {
+      this.$refs.detail.open();
+    }
+  },
   mounted() {
     this.$store.dispatch("getTotalIncome");
   },
   computed: {
+    monthlyData() {
+      var data = this.$store.getters.campaigns;
+      data = data.filter(item => {
+        console.log(item.created_at);
+        console.log(new Date(item.created_at).getMonth());
+        console.log(this.month[new Date(item.created_at).getMonth()]);
+        console.log(this.$store.getters.totalIncome[this.selectedSeries].month);
+        console.log(new Date(item.created_at).getYear() + 1900);
+        console.log(
+          parseInt(this.$store.getters.totalIncome[this.selectedSeries].year)
+        );
+        return (
+          item.is_paid == "1" &&
+          this.month[new Date(item.created_at).getMonth()] ==
+            this.$store.getters.totalIncome[this.selectedSeries].month &&
+          new Date(item.created_at).getYear() + 1900 ==
+            parseInt(this.$store.getters.totalIncome[this.selectedSeries].year)
+        );
+      });
+      return data;
+    },
     series() {
       this.mySeries = [
         {
@@ -42,7 +100,13 @@ export default {
       return {
         chart: {
           height: 350,
-          type: "bar"
+          type: "bar",
+          events: {
+            dataPointSelection: (event, chartContext, config) => {
+              this.selectedSeries = config.dataPointIndex;
+              this.showTable();
+            }
+          }
         },
         plotOptions: {
           bar: {
@@ -140,6 +204,21 @@ export default {
   },
   data() {
     return {
+      month: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      selectedSeries: 0,
       mySeries: [
         {
           name: "Income",
@@ -253,4 +332,25 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+.table-info {
+  td {
+    padding: 0.5em;
+  }
+  margin-bottom: 1em;
+}
+.table-details {
+  border-collapse: collapse;
+  border: 1px dotted grey;
+
+  tr:nth-child(even) {
+    background-color: honeydew;
+  }
+  td,
+  th {
+    padding: 0.8em;
+  }
+  th {
+    text-align: center;
+  }
+}
 </style>
