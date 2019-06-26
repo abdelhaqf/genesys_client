@@ -1,0 +1,47 @@
+{
+  "name": "genesys_client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "apexcharts": "^3.8.0",
+    "axios": "^0.19.0",
+    "core-js": "^2.6.5",
+    "fecha": "^3.0.3",
+    "md5": "^2.2.1",
+    "trunc-text": "^1.0.2",
+    "uuid": "^3.3.2",
+    "vue": "^2.6.10",
+    "vue-apexcharts": "^1.4.0",
+    "vue-backtotop": "^1.6.1",
+    "vue-count-to": "^1.0.13",
+    "vue-date-pick": "^1.1.0",
+    "vue-ionicons": "^3.0.4",
+    "vue-lorem-ipsum": "0.0.1",
+    "vue-ls": "^3.2.1",
+    "vue-router": "^3.0.3",
+    "vue-scroll-reveal": "^1.0.11",
+    "vue-snotify": "^3.2.1",
+    "vue-star-rating": "^1.6.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
