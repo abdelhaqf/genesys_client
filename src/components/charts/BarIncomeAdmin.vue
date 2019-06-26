@@ -23,12 +23,14 @@
           <tr>
             <th>date</th>
             <th>user id</th>
+            <th>username</th>
             <th>company</th>
             <th>price</th>
           </tr>
           <tr v-for="(item) in monthlyData" :key="item.campaign_id">
             <td>{{item.created_at.substring(0,10)}}</td>
             <td>{{item.user_id}}</td>
+            <td>{{getUserName(item.user_id)}}</td>
             <td>{{item.company_name}}</td>
             <td>{{item.final_cost | rp}}</td>
           </tr>
@@ -45,23 +47,33 @@ export default {
   methods: {
     showTable() {
       this.$refs.detail.open();
+    },
+    getUserName(id) {
+      var help = this.$store.getters.users.find(usr => {
+        return usr.user_id == id;
+      });
+      // console.log(help);
+      if (help == undefined) return "";
+      return help.username;
+      // return "a";
     }
   },
   mounted() {
     this.$store.dispatch("getTotalIncome");
+    this.$store.dispatch("getUsers");
   },
   computed: {
     monthlyData() {
       var data = this.$store.getters.campaigns;
       data = data.filter(item => {
-        console.log(item.created_at);
-        console.log(new Date(item.created_at).getMonth());
-        console.log(this.month[new Date(item.created_at).getMonth()]);
-        console.log(this.$store.getters.totalIncome[this.selectedSeries].month);
-        console.log(new Date(item.created_at).getYear() + 1900);
-        console.log(
-          parseInt(this.$store.getters.totalIncome[this.selectedSeries].year)
-        );
+        // console.log(item.created_at);
+        // console.log(new Date(item.created_at).getMonth());
+        // console.log(this.month[new Date(item.created_at).getMonth()]);
+        // console.log(this.$store.getters.totalIncome[this.selectedSeries].month);
+        // console.log(new Date(item.created_at).getYear() + 1900);
+        // console.log(
+        //   parseInt(this.$store.getters.totalIncome[this.selectedSeries].year)
+        // );
         return (
           item.is_paid == "1" &&
           this.month[new Date(item.created_at).getMonth()] ==

@@ -22,8 +22,11 @@
     <table>
       <tr>
         <th>No</th>
+        <th>user ID</th>
+        <th>username</th>
         <th>company</th>
         <th>service</th>
+        <th>created</th>
         <!-- <th>audience</th> -->
         <!-- <th>social media</th> -->
         <th>estimated time</th>
@@ -32,8 +35,11 @@
       </tr>
       <tr v-for="(item,index) in campaigns" :key="item.campaign_id" @click="detailCampaign(item)">
         <td>{{index+1}}</td>
+        <td>{{item.user_id}}</td>
+        <td>{{getUserName(item.user_id)}}</td>
         <td>{{item.company_name}}</td>
         <td>{{item.service_type}}</td>
+        <td>{{item.created_at.substring(0,10)}}</td>
         <!-- <td>{{item.target_audience}}</td> -->
         <!-- <td>{{item.social_medias}}</td> -->
         <td>{{item.time_period}} day(s)</td>
@@ -63,6 +69,14 @@
         <tr>
           <td>campaign id</td>
           <td>{{selectedCampaign.campaign_id}}</td>
+        </tr>
+        <tr>
+          <td>user id</td>
+          <td>{{selectedCampaign.user_id}}</td>
+        </tr>
+        <tr>
+          <td>username</td>
+          <td>{{getUserName(selectedCampaign.user_id)}}</td>
         </tr>
         <tr>
           <td>company</td>
@@ -143,6 +157,8 @@ export default {
   },
   created() {
     this.$store.dispatch("getCampaigns");
+    this.$store.dispatch("getUsers");
+    this.$store.dispatch("getPayments");
   },
   computed: {
     campaigns() {
@@ -175,6 +191,22 @@ export default {
     }
   },
   methods: {
+    getPaymentTime(id) {
+      var help = this.$store.getters.payments.find(py => {
+        return py.payment_id == id;
+      });
+      if (help == undefined) return "";
+      return help.created_at.substring(0, 10);
+    },
+    getUserName(id) {
+      var help = this.$store.getters.users.find(usr => {
+        return usr.user_id == id;
+      });
+      // console.log(help);
+      if (help == undefined) return "";
+      return help.username;
+      // return "a";
+    },
     truncText(text, len) {
       return trunc(text, len);
     },
@@ -182,7 +214,8 @@ export default {
       if (item.result == "rated") return "rated";
 
       if (item.result == "finished") return "finished";
-      if (item.is_paid == "1") return "paid";
+      if (item.is_paid == "1")
+        return "paid - " + this.getPaymentTime(item.campaign_id);
       return item.result;
     },
     toProgress() {
@@ -203,6 +236,8 @@ export default {
 <style lang='scss' scoped>
 .table-campaign {
   padding: 1em;
+  margin: 1em !important;
+  // overflow: scroll;
   .btnEdit {
     padding: 0.5em 1em;
     cursor: pointer;

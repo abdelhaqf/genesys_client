@@ -103,7 +103,7 @@ export default {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
       align-content: start;
-      justify-items: center;
+      // justify-items: center;
       grid-template-areas:
         "rc ps"
         "tc tc";
