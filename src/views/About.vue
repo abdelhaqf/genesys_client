@@ -15,43 +15,28 @@
           <div class="img-container">
             <img src="person1.jpg" alt>
           </div>
-          <p class="name">John Smith</p>
-          <lorem add="4s"></lorem>
+          <p class="name">Galeh Adien Nugroho</p>
+          <p>Genesys digital marketing agency that helps you promote your products or services online.
+We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.</p>
         </div>
         <div class="team-card">
           <div class="img-container">
             <img src="person2.jpg" alt>
           </div>
-          <p class="name">Elisa Burke</p>
-          <lorem add="4s"></lorem>
+          <p class="name">Rully Setiawan</p>
+          <p>Digital marketing agency that helps you promote your products or services online.
+          We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.</p>
+
         </div>
         <div class="team-card">
           <div class="img-container">
             <img src="person3.jpg" alt>
           </div>
-          <p class="name">Adam Young</p>
-          <lorem add="4s"></lorem>
+          <p class="name">Muhammad Fachry</p>
+          <p>We find it interesting and challenging in seeing how we do business. We leverage our business by leveraging our clients business in various industries. We lift up small enterprise to medium enterprise, medium enterprise to growing enterprise and big companies to sustain and keep growing.</p>
         </div>
         <div class="team-card">
-          <div class="img-container">
-            <img src="person4.jpg" alt>
-          </div>
-          <p class="name">Robert Rost</p>
-          <lorem add="4s"></lorem>
-        </div>
-        <div class="team-card">
-          <div class="img-container">
-            <img src="person5.jpg" alt>
-          </div>
-          <p class="name">Stephanie Reed</p>
-          <lorem add="4s"></lorem>
-        </div>
-        <div class="team-card">
-          <div class="img-container">
-            <img src="person6.jpg" alt>
-          </div>
-          <p class="name">Aaron Ong</p>
-          <lorem add="4s"></lorem>
+
         </div>
       </div>
     </div>
@@ -145,7 +130,8 @@ export default {
         grid-template-rows: 200px 50px auto;
         .img-container {
           border-radius: 6px 6px 0 0;
-          width: 100%;
+          width: 50%;
+          margin: 0 auto;
           overflow: hidden;
           img {
             width: 100%;

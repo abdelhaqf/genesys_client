@@ -149,6 +149,9 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+table{
+  background-color: rgba(azure, 0.8);
+}
 .form-update-user {
   .image-container {
     margin-left: 2em;

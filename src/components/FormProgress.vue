@@ -102,6 +102,42 @@
         </td>
       </tr>
       <tr>
+        <td>profile</td>
+        <td>
+          <label for="fileToUpload">{{theFile.name?theFile.name+' ':'click to open file dialog '}}</label>
+          <input
+            v-show="theFile.name"
+            type="submit"
+            @click.prevent="theFile = $refs.fileupload.files[0];upload()"
+            name="submit"
+            value="upload"
+            style="background-color: grey; width:300px !important; "
+          >
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div style="width:0px; overflow:hidden;height: 0px;">
+            <input
+              type="file"
+              ref="fileupload"
+              id="fileToUpload"
+              @change="theFile = $refs.fileupload.files[0]"
+              style="width:0px; overflow:hidden;height: 0px;"
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="image-container" v-if="profileURL">
+            <img :src="profileURL" alt>
+          </div>
+        </td>
+      </tr>
+      <tr>
         <td></td>
         <td>
           <input type="submit" value="submit" @click="submit">
@@ -112,6 +148,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import DatePick from "vue-date-pick";
 import fecha from "fecha";
 import "vue-date-pick/dist/vueDatePick.css";
@@ -122,9 +159,31 @@ export default {
     this.init();
   },
   data() {
-    return { progress: { created_at: "" }, format: "YYYY-MM-DD", rep: 0 };
+    return {
+      progress: { created_at: "" },
+      theFile: {},
+      profileURL: "",
+      format: "YYYY-MM-DD", rep: 0 };
   },
   methods: {
+    upload() {
+      console.log("uploading");
+      let formData = new FormData();
+      formData.append("file", this.theFile);
+      axios({
+        method: "post",
+        url: "http://localhost/genesys_api/upload.php",
+        data: formData,
+        config: { headers: { "Content-Type": "multipart/form-data" } }
+      })
+        .then(data => {
+          this.profileURL =
+            "http://localhost/genesys_api/upload/" + this.theFile.name;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     init() {
       this.progress.campaign_id = this.$store.getters.campaign.campaign_id;
       // this.progress.created_at = fecha.format(new Date(), "YYYY-MM-DD");
@@ -202,6 +261,21 @@ export default {
 </script>
 <style lang='scss' scoped>
 .form-progress {
+  .image-container {
+    margin-left: 2em;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    img {
+      width: 200px;
+    }
+  }
   table {
     td:first-child {
       font-size: 0.8em;
