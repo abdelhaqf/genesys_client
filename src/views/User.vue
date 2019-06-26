@@ -42,12 +42,18 @@ export default {
 </script>
 <style lang='scss' scoped>
 .user-dashboard {
+  background-image: url("../../public/background.jpg");
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr;
   .nav {
-    background-color: royalblue;
+    background-color: darkslategray;
     color: white;
     height: 1fr;
     // padding: 1em;

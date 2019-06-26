@@ -3,7 +3,7 @@
     <vue-snotify>{{snoti}}</vue-snotify>
     <back-to-top visibleoffset="500" class="to-top">^</back-to-top>
     <div class="fixed-nav">
-      <span style="cursor: default;">GENESYS</span>
+      <span style="cursor: default;">GENESYS DIGITAL MARKETING</span>
       <div>
         <router-link to="/">HOME</router-link>
         <router-link to="/about" v-if="!user">ABOUT US</router-link>
@@ -121,8 +121,8 @@ span {
     color: white;
     padding: 0.5em 1em;
     span {
-      font-size: 2.5em;
-      margin-left: 5vw;
+      font-size: 1.2em;
+      margin-left: 4vw;
       font-weight: bold;
     }
     div {

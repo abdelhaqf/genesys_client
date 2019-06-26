@@ -1,6 +1,6 @@
 <template>
   <div class="form-campaign">
-    <Stepper :legends="['Service','Audience','Target']" :validation="validated" @submit="submit">
+    <Stepper :legends="['Service','Audience','Target']" :validation="validated" @submit="submit" class="stepper">
       <div slot="content1" class="content">
         <a>company</a>
         <p>{{campaign.company_name}}</p>
@@ -184,4 +184,10 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+.stepper{
+  background-color: rgba(azure, 0.8);
+  input, select{
+      width: 90%;
+  }
+}
 </style>

@@ -180,6 +180,7 @@ export default {
     color: salmon;
   }
   table {
+    background-color: rgba(azure, 0.8);
     border-collapse: collapse;
     border: 1px solid silver !important;
     th {
