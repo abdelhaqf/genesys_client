@@ -253,8 +253,6 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-<<<<<<< Updated upstream
-=======
   .bar-income-user{
     background-color: rgba(azure, 0.6);
   }
@@ -279,5 +277,4 @@ export default {
     text-align: center;
   }
 }
->>>>>>> Stashed changes
 </style>
