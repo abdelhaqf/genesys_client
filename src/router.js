@@ -29,6 +29,12 @@ export default new Router({
       name: "userDashboard",
       component: UserDashboard
     },
+    ,
+    {
+      path: "/user/dashboard/new",
+      name: "userDashboardNew",
+      component: UserDashboard
+    },
     {
       path: "/admin/dashboard",
       name: "adminDashboard",

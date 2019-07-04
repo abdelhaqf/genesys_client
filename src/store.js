@@ -88,7 +88,7 @@ export default new Vuex.Store({
     setTotalJobs(state, data) {
       state.totalJobs = [
         parseInt(data.pegawai),
-        parseInt(data.karyawan),
+        parseInt(data.pelajar),
         parseInt(data.pengusaha)
       ];
     },

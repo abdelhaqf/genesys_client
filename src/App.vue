@@ -3,7 +3,9 @@
     <vue-snotify>{{snoti}}</vue-snotify>
     <back-to-top visibleoffset="500" class="to-top">^</back-to-top>
     <div class="fixed-nav">
-      <span style="cursor: default;">GENESYS DIGITAL MARKETING</span>
+      <span style="cursor: default;" class="title-holder">
+        <img src="glogo.png"></img> GENESYS DIGITAL MARKETING
+      </span>
       <div>
         <router-link to="/">HOME</router-link>
         <router-link to="/about" v-if="!user">ABOUT US</router-link>
@@ -110,6 +112,15 @@ span {
 }
 
 .app {
+  .title-holder {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    img {
+      width: 60px;
+      margin-right: 1em;
+    }
+  }
   .fixed-nav {
     z-index: 999;
     position: fixed;

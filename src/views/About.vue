@@ -16,17 +16,20 @@
             <img src="person1.jpg" alt>
           </div>
           <p class="name">Galeh Adien Nugroho</p>
-          <p>Genesys digital marketing agency that helps you promote your products or services online.
-We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.</p>
+          <p>
+            Genesys digital marketing agency that helps you promote your products or services online.
+            We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.
+          </p>
         </div>
         <div class="team-card">
           <div class="img-container">
             <img src="person2.jpg" alt>
           </div>
           <p class="name">Rully Setiawan</p>
-          <p>Digital marketing agency that helps you promote your products or services online.
-          We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.</p>
-
+          <p>
+            Digital marketing agency that helps you promote your products or services online.
+            We always help our happy clients to boost their brand awareness, to increase their sales by generating more leads, and to growth-hack their revenue.
+          </p>
         </div>
         <div class="team-card">
           <div class="img-container">
@@ -35,9 +38,7 @@ We always help our happy clients to boost their brand awareness, to increase the
           <p class="name">Muhammad Fachry</p>
           <p>We find it interesting and challenging in seeing how we do business. We leverage our business by leveraging our clients business in various industries. We lift up small enterprise to medium enterprise, medium enterprise to growing enterprise and big companies to sustain and keep growing.</p>
         </div>
-        <div class="team-card">
-
-        </div>
+        <div class="team-card"></div>
       </div>
     </div>
   </div>

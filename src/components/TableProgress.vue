@@ -27,6 +27,7 @@
         <th>facebook</th>
         <th>twitter</th>
         <th>instagram</th>
+        <th>proof</th>
       </tr>
       <tr v-for="(item,index) in results" :key="item.result_id" @click="detailProgress(item)">
         <td>{{index+1}}</td>
@@ -37,6 +38,13 @@
         <td>{{item.twitter}}</td>
         <td>{{item.instagram}}</td>
         <td v-if="isEditable && index>0" class="delete" @click.self.stop="deleteProgress(item)">x</td>
+        <td>
+          <a
+            v-if="item.proof"
+            href="#"
+            @click.self.stop="showImage('http://localhost/genesys_api/upload/'+item.proof)"
+          >link</a>
+        </td>
       </tr>
     </table>
     <FormConfirm
@@ -118,6 +126,17 @@
           <td>instagram</td>
           <td>{{selectedProgress.instagram}}</td>
         </tr>
+        <tr>
+          <td>proof</td>
+          <td>
+            <div
+              class="img-container"
+              @click="showImage('http://localhost/genesys_api/upload/'+selectedProgress.proof) "
+            >
+              <img :src="'http://localhost/genesys_api/upload/'+selectedProgress.proof" alt>
+            </div>
+          </td>
+        </tr>
       </table>
     </FormDetail>
   </div>
@@ -144,6 +163,9 @@ export default {
     }
   },
   methods: {
+    showImage(url) {
+      window.open(url, "_blank");
+    },
     deleteProgress(progress) {
       this.selectedProgress = progress;
       this.$refs.confirmation.open();
@@ -153,11 +175,25 @@ export default {
       console.log(this.selectedProgress);
       this.$refs.detail.open();
     }
-  }
+  },
 };
 </script>
 <style lang='scss' scoped>
 .table-progress {
+  .img-container {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    img {
+      width: 200px;
+    }
+  }
   padding: 1em;
   .btnEdit {
     padding: 0.5em 1em;
@@ -219,3 +255,4 @@ export default {
   background-color: rgba(dodgerblue, 0.2);
 }
 </style>
+

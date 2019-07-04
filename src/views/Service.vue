@@ -3,7 +3,10 @@
     <div class="ourService" v-scroll-reveal.reset>
       <p class="title">Our Service</p>
       <p class="sub-title">
-        <router-link to="/register">
+        <router-link v-if="user" to="/user/dashboard/new">
+          <a class="button" href="#">Order Now</a>
+        </router-link>
+        <router-link v-else to="/register">
           <a class="button" href="#">Order Now</a>
         </router-link>
       </p>
@@ -33,6 +36,11 @@ import LoremIpsum from "vue-lorem-ipsum";
 export default {
   name: "service",
   components: { lorem: LoremIpsum },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    }
+  },
   mounted() {},
   data() {
     return {};

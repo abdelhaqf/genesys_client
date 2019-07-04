@@ -60,9 +60,9 @@
         </td>
       </tr>
       <tr>
-        <td>karyawan</td>
+        <td>pelajar</td>
         <td>
-          <input type="number" v-model="progress.karyawan">
+          <input type="number" v-model="progress.pelajar">
         </td>
       </tr>
       <tr>
@@ -102,17 +102,20 @@
         </td>
       </tr>
       <tr>
-        <td>profile</td>
+        <td>proof</td>
         <td>
-          <label for="fileToUpload">{{theFile.name?theFile.name+' ':'click to open file dialog '}}</label>
-          <input
-            v-show="theFile.name"
-            type="submit"
-            @click.prevent="theFile = $refs.fileupload.files[0];upload()"
-            name="submit"
-            value="upload"
-            style="background-color: grey; width:300px !important; "
-          >
+          <div clas="upload">
+            <label for="fileToUpload">{{theFile.name?theFile.name+' ':'click to open file dialog '}}</label>
+
+            <input
+              v-show="theFile.name"
+              type="submit"
+              @click.prevent="theFile = $refs.fileupload.files[0];upload()"
+              name="submit"
+              value="upload"
+              style="background-color: grey; width:100px !important; "
+            >
+          </div>
         </td>
       </tr>
       <tr>
@@ -163,7 +166,9 @@ export default {
       progress: { created_at: "" },
       theFile: {},
       profileURL: "",
-      format: "YYYY-MM-DD", rep: 0 };
+      format: "YYYY-MM-DD",
+      rep: 0
+    };
   },
   methods: {
     upload() {
@@ -193,6 +198,8 @@ export default {
       // console.log(this.rep);
     },
     submit() {
+      this.progress.proof = this.theFile.name;
+
       this.$store.dispatch("submitProgress", this.progress);
       this.progress = {};
       this.init();
@@ -277,6 +284,13 @@ export default {
     }
   }
   table {
+    .upload {
+      display: grid;
+      grid-template-columns: 100px 100px;
+      // input[type="submit"] {
+      //   width: 100px !important;
+      // }
+    }
     td:first-child {
       font-size: 0.8em;
       color: grey;

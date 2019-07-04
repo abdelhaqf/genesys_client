@@ -1,6 +1,11 @@
 <template>
   <div class="form-campaign">
-    <Stepper :legends="['Service','Audience','Target']" :validation="validated" @submit="submit" class="stepper">
+    <Stepper
+      :legends="['Service','Audience','Target']"
+      :validation="validated"
+      @submit="submit"
+      class="stepper"
+    >
       <div slot="content1" class="content">
         <a>company</a>
         <p>{{campaign.company_name}}</p>
@@ -28,7 +33,7 @@
         <a>job</a>
         <select v-model="campaign.job">
           <option value="pegawai">pegawai</option>
-          <option value="karyawan">karyawan</option>
+          <option value="pelajar">pelajar</option>
           <option value="pengusaha">pengusaha</option>
         </select>
       </div>
@@ -184,10 +189,12 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-.stepper{
+.stepper {
   background-color: rgba(azure, 0.8);
-  input, select{
-      width: 90%;
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 90%;
   }
 }
 </style>

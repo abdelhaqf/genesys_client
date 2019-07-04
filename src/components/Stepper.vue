@@ -49,7 +49,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .stepper {
-  width: 450px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;

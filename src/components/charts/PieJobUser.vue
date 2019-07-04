@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       chartOptions: {
-        labels: ["pegawai", "karyawan", "pengusaha"],
+        labels: ["pegawai", "pelajar", "pengusaha"],
         title: {
           // text: "Job precentage"
         },

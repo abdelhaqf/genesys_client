@@ -32,6 +32,11 @@ export default {
   data() {
     return { nav: "campaign" };
   },
+  mounted() {
+    if (this.$router.currentRoute.name == "userDashboardNew") {
+      this.nav = "new";
+    }
+  },
   computed: {
     user() {
       return this.$store.getters.user;
@@ -47,8 +52,9 @@ export default {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-size: 100%;
-  height: 100%;
+  // background-attachment: fixed;
+  background-size: cover;
+  // height: 100%;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr;
