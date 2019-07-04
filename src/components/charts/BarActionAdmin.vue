@@ -267,4 +267,7 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+  .bar-action-user{
+    background-color: rgba(azure, 0.6);
+  }
 </style>

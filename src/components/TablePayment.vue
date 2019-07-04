@@ -22,7 +22,7 @@
         @click="detailCampaign(item)"
       >
         <td>{{index+1}}</td>
-        <td>{{item.payment_type}}</td>
+        <td v-if="item.payment_type=='debit'">transfer</td><td v-else>{{item.payment_type}}</td>
         <td>{{item.card_number}}</td>
         <td>{{item.card_exp}}</td>
         <td>{{item.account_name}}</td>
@@ -148,6 +148,7 @@ export default {
     color: salmon;
   }
   table {
+    background-color: rgba(azure, 0.8);
     border-collapse: collapse;
     border: 1px solid silver !important;
     th {

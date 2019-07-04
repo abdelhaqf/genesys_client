@@ -94,6 +94,14 @@ export default {
 </script>
 <style lang='scss' scoped>
 .payment {
+  
+  background-image: url("../../public/background1.jpg");
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+
   padding: 1em;
   padding-top: 6em !important;
   min-height: 500px;
@@ -109,8 +117,8 @@ export default {
         padding: 0.5em 1em;
         width: 100%;
       }
-      select {
-      }
+      // select {
+      // }
       input[type="submit"] {
         width: 100%;
         background-color: dodgerblue;

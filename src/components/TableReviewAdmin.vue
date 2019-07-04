@@ -107,6 +107,7 @@ export default {
 .table-review {
   padding: 1em;
   .btnEdit {
+    background-color: rgba(azure, 0.6);
     padding: 0.5em 1em;
     cursor: pointer;
     border: 2px solid dodgerblue;
@@ -115,10 +116,12 @@ export default {
     margin-bottom: 0.5em;
   }
   .btnEditActive {
+    background-color: rgba(azure, 0.6);
     border: 2px solid salmon;
     color: salmon;
   }
   table {
+    background-color: rgba(azure, 0.8);
     border-collapse: collapse;
     border: 1px solid silver !important;
     th {

@@ -137,6 +137,14 @@ export default {
 </script>
 <style lang='scss' scoped>
 .payment {
+  background-image: url("../../public/background1.jpg");
+  background-repeat: no-repeat;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+  // // background-size: cover;
+
+
   padding: 1em;
   padding-top: 6em !important;
   min-height: 500px;
@@ -166,9 +174,9 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 1em;
-      input {
-        // width: 50%;
-      }
+      // input {
+      //   // width: 50%;
+      // }
     }
     td {
       padding: 0.5em;
@@ -177,8 +185,8 @@ export default {
         padding: 0.5em 1em;
         width: 100%;
       }
-      select {
-      }
+      // select {
+      // }
       input[type="submit"] {
         width: 100%;
         background-color: dodgerblue;

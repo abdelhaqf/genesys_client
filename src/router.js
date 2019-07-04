@@ -14,6 +14,7 @@ import Register from "./views/Register.vue";
 import Review from "./views/Review.vue";
 import MultiPaymentCredit from "./views/MultiPaymentCredit.vue";
 import MultiPaymentDebit from "./views/MultiPaymentDebit.vue";
+import Invoice from "./views/Invoice.vue";
 
 Vue.use(Router);
 
@@ -88,6 +89,11 @@ export default new Router({
       path: "/multipayment/debit",
       name: "multiPaymentDebit",
       component: MultiPaymentDebit
+    },
+    {
+      path: "/campaign/invoice",
+      name: "invoice",
+      component: Invoice
     }
   ],
   scrollBehavior(to, from, savedPosition) {

@@ -153,13 +153,20 @@ export default {
       return trunc(text, len);
     },
     deleteCampaign(campaign) {
-      this.selectedCampaign = campaign;
-      this.$refs.confirmation.open();
+
+        this.selectedCampaign = campaign;
+        this.$refs.confirmation.open();
     },
     detailCampaign(campaign) {
+    if(this.result(campaign) == 'paid'){
+        this.$store.commit("setCampaign", campaign);
+        this.$router.push('/campaign/invoice')
+      }
+      else{
       this.selectedCampaign = campaign;
       console.log(this.selectedCampaign);
       this.$refs.detail.open();
+      }
     }
   }
 };

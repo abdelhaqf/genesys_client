@@ -253,4 +253,31 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+<<<<<<< Updated upstream
+=======
+  .bar-income-user{
+    background-color: rgba(azure, 0.6);
+  }
+.table-info {
+  td {
+    padding: 0.5em;
+  }
+  margin-bottom: 1em;
+}
+.table-details {
+  border-collapse: collapse;
+  border: 1px dotted grey;
+
+  tr:nth-child(even) {
+    background-color: honeydew;
+  }
+  td,
+  th {
+    padding: 0.8em;
+  }
+  th {
+    text-align: center;
+  }
+}
+>>>>>>> Stashed changes
 </style>
